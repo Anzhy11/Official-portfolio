@@ -11,17 +11,27 @@ const Contact = () => {
   const [form, setForm] = useState({
     name: '',
     email: '',
-    message: '',
+    desc: '',
   });
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {}
+  const handleChange = (e) => {
+    const { target } = e;
+    const { name, value } = target
 
-  const handleSubmit = (e) => {}
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+
+  }
 
   return (
-    <div className='xl:mt-12 md:flex-row flex-col-reverse flex gap-10 overflow-hidden'>
+    <div className='xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden'>
       <motion.div
         variants={slideIn('left', "tween", 0.2, 1)}
         className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
@@ -43,6 +53,7 @@ const Contact = () => {
               onChange={handleChange}
               placeholder="What's your name"
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              required
             />
           </label>
           <label className='flex flex-col'>
@@ -54,17 +65,19 @@ const Contact = () => {
               onChange={handleChange}
               placeholder="What's your email"
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              required
             />
           </label>
           <label className='flex flex-col'>
             <span className='text-white font-medium mb-4'>Your Message</span>
             <textarea
-              row="7"
-              name='massage'
-              value={form.message}
+              rows={7}
+              name='desc'
+              value={form.desc}
               onChange={handleChange}
               placeholder="What do you want to say"
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              required
             />
           </label>
 
@@ -72,7 +85,7 @@ const Contact = () => {
             type='submit'
             className='bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl'
           >
-            {loading ? "Sending" : "Send"}
+            {loading ? "Sending..." : "Send"}
           </button>
         </form>
       </motion.div>
