@@ -4,44 +4,33 @@ import { styles } from "../styles"
 
 
 
+const socialIcons = {
+    facebook: FacebookIcon,
+    twitter: TwitterIcon,
+    linkedin: LinkedInIcon,
+    instagram: InstagramIcon,
+    github: GitHubIcon,
+  };
+  
 const SocialsCard = ({ icon, link }) => {
-
-    function img(icon) {
-        if (icon === 'facebook') {
-         return <FacebookIcon />
-        }
-        else if  (icon === 'twitter') {
-         return <TwitterIcon />
-        }
-        else if  (icon === 'linkedin') {
-            return <LinkedInIcon />
-        }
-        else if  (icon === 'instagram') {
-         return <InstagramIcon />
-        }
-        else if  (icon === 'github') {
-        return <GitHubIcon />
-        }
-    } 
-
+    const Icon = socialIcons[icon];
+  
     return (
-        <div 
-        onClick={() => window.open
-            (link, "blank")
-          }
+      <div
+        onClick={() => window.open(link, "blank")}
         className="cursor-pointer w-10 h-10 md:mx-6 mx-4 my-5 rounded-full bg-secondary flex flex-wrap justify-center items-center hover:bg-primary/80"
-        >            
-            {img(icon)}
-        </div>
-    )
-}
+      >
+        <Icon />
+      </div>
+    );
+};
 
 const Footer = () => {
   return (
     <footer className='className={`${styles.paddingX} w-full flex flex-col items-center justify-center py-10 z-30 bg-primary`}'>
         <div className="flex">
         {socials.map((social) => (
-            <div className="key={social.name}">
+            <div key={social.name}>
                 <SocialsCard icon={social.name} link={social.link}/>
             </div>
         ))}
