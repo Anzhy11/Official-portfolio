@@ -262,4 +262,27 @@ const projects = [
     },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+const socials = [
+    {
+        name: 'facebook',
+        link: 'https://facebook.com/',
+    },
+    {
+        name: 'twitter',
+        link: 'https://facebook.com/',
+    },
+    {
+        name: 'linkedin',
+        link: 'https://linkedin.com/'
+    },
+    {
+        name: 'instagram',
+        link: 'https://instagram.com/'
+    },
+    {
+        name: 'github',
+        link: 'https://github.com/anzhy11/'
+    },
+]
+
+export { services, technologies, experiences, testimonials, projects, socials };
