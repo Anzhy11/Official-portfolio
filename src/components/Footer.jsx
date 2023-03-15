@@ -27,7 +27,7 @@ const SocialsCard = ({ icon, link }) => {
 
 const Footer = () => {
   return (
-    <footer className='className={`${styles.paddingX} w-full flex flex-col items-center justify-center py-10 z-30 bg-primary`}'>
+    <footer className={`${styles.paddingX} w-full flex flex-col items-center justify-center py-10 z-30 bg-primary`}>
         <div className="flex">
         {socials.map((social) => (
             <div key={social.name}>
